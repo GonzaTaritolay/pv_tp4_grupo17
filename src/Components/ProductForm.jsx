@@ -17,7 +17,13 @@ function ProductForm({ addProduct, editingProduct, updateProduct, products }) {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    let newValue = value;
+
+    // Eliminar ceros al inicio del ID
+    if (name === "id") {
+      newValue = value.replace(/^0+/, '');
+    }
+    setForm(prev => ({ ...prev, [name]: newValue }));
   };
 
   const handleSubmit = e => {
@@ -28,6 +34,10 @@ function ProductForm({ addProduct, editingProduct, updateProduct, products }) {
 
     if (!id || !descripcion || !precioUnitario || !descuento || !stock) {
       errors.push('Todos los campos son obligatorios.');
+    }
+    const idNumber = Number(id);
+    if (!id || isNaN(idNumber) || !Number.isInteger(idNumber) || idNumber <= 0) {
+      errors.push('El ID debe ser un número entero positivo sin ceros iniciales.');
     }
 
     if (!editingProduct && products.some(p => p.id === id)) {
@@ -69,7 +79,7 @@ function ProductForm({ addProduct, editingProduct, updateProduct, products }) {
   return (
     <form onSubmit={handleSubmit} className="mb-4 space-y-2">
       <input name="id" placeholder="ID" value={form.id} onChange={handleChange} className="input" required />
-      <input name="descripcion" placeholder="Descripción" value={form.descripcion} onChange={handleChange} className="input" required />
+      <input name="descripcion"  placeholder="Descripción" value={form.descripcion} onChange={handleChange} className="input" required />
       <input name="precioUnitario" type="number" placeholder="Precio Unitario" value={form.precioUnitario} onChange={handleChange} className="input" required />
       <input name="descuento" type="number" placeholder="Descuento (%)" value={form.descuento} onChange={handleChange} className="input" required />
       <input name="stock" type="number" placeholder="Stock" value={form.stock} onChange={handleChange} className="input" required />

@@ -1,10 +1,11 @@
 import {useMemo, useState } from 'react'  
 import {useProducts} from './hooks/useProducts'
-import { ProductForm } from './Components/ProductForm'
+import  ProductForm  from './Components/ProductForm'
 import ProductList from './Components/ProductList';
 import SearchBar from './Components/SearchBar';
 import './App.css'
 function App() {
+ const [searchTerm, setSearchTerm] = useState('');
  const {
     products,
     editingProduct,
