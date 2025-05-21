@@ -39,15 +39,38 @@ form input:focus {
   outline: none;
 }
 
+.input {
+  padding: 0.5rem 1rem;
+  border: 1.5px solid #7c7d7f;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #403f3f;
+  color: #d0d0d1;
+  margin-bottom: 1.5rem;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(8, 12, 231, 0.07);
+}
+
+.input:focus {
+  border: 1px solid #363232;
+  outline: none;
+  box-shadow: 0 0 0 2px #e6e6e655;
+}
+
 form button {
   background: #1d1c1c;
   color: #e0e0e0f9;
   border: none;
   border-radius: 8px;
-  padding: 0.5rem 1.2rem;
+  padding: 1rem 1.2rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s;
+  height: 40px; 
+  align-self: auto;
+  height: 38px;
+  display: flex;
+  align-items: center;
 }
 
 form button:hover {
@@ -84,10 +107,27 @@ form button:hover {
   background: #544ddf;
 }
 
-.card {
-  padding: 2em;
+.productos {
+  background: #23272f1b;
+  margin-bottom: 1rem;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(240, 240, 240, 0.695);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  color: #e8e8e8;
 }
-
-.read-the-docs {
-  color: #888;
+.productos:hover {
+  background: #e9e9e927;
+  box-shadow: 0 4px 16px rgba(226, 226, 226, 0.62);
+  transform: translateY(-2px) scale(1.01);
+}
+.productos strong {
+  color: #ffffff;
+}
+.productos p {
+  margin: 0.1rem 0;
 }

@@ -1,6 +1,6 @@
 function ProductItem({ product, deleteProduct, startEditProduct }) {
   return (
-    <div className="border p-2 rounded shadow flex justify-between items-center">
+    <div className="productos border p-2 rounded shadow flex justify-between items-center">
       <div>
         <p><strong>{product.descripcion}</strong> (ID: {product.id})</p>
         <p>Precio: ${product.precioUnitario} | Descuento: {product.descuento}%</p>
